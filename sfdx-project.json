@@ -1,0 +1,10 @@
+{
+  "packageDirectories": [
+    {
+      "path": "pf-app",
+      "default": true
+    }
+  ],
+  "sfdcLoginUrl": "https://login.salesforce.com:6109",
+  "sourceApiVersion": "40.0"
+}

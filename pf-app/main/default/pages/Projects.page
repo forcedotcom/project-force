@@ -1,0 +1,23 @@
+<!-- Custom page for the Projects tab, records stored in the data variable -->
+<apex:page standardController="Project__c" recordSetVar="data" extensions="ProjectExtension">
+    <apex:form >
+        <apex:pageBlock >
+        <apex:pageBlockButtons location="top">
+            <apex:commandButton action="{!URLFOR($Action.Project__c.New)}" value="Create New Project"/>
+        </apex:pageBlockButtons>
+        <!-- Link for creating a new Project object. 
+        <apex:outputLink value="{!URLFOR($Action.Project__c.New)}"> 
+            Create New Project
+        </apex:outputLink> -->
+            <!-- use the data variable containing Project objects to create a table -->
+            <apex:pageBlockTable var="c" value="{!data}">
+                
+                <apex:column value="{!c.Id}"/>
+                <apex:column value="{!c.Name}"/> 
+                <!-- Expense Tracking and Total Budget columns are only displayed if the features/Custom permissions are enabled -->
+                <apex:column value="{!c.ExpenseTracking__c}" rendered="{!expenseTrackingEnabled}"/>
+                <apex:column value="{!c.TotalBudget__c}" rendered="{!budgetTrackingEnabled}"/>                               
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

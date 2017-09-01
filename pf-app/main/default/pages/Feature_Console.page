@@ -1,0 +1,19 @@
+<!-- custom page for the Feature Console tab -->
+<apex:page controller="FeatureConsoleController">
+  <apex:form >
+        <apex:pageBlock title="ProjectForce Features">
+            <apex:messages style="color:red"/>
+            <!-- table representing the current status of features in this org -->
+            <apex:pageBlockTable var="f" value="{!features}">
+              <!-- checkbox representing if the feature in this row is enabled -->
+              <apex:column headerValue="Enabled" width="30">
+              <apex:inputCheckbox value="{!f.enabled}"/>
+              </apex:column>
+              <!-- feature name -->
+              <apex:column value="{!f.name}" headerValue="Name"/>
+            </apex:pageBlockTable>
+            <!-- save button -->
+            <apex:commandButton action="{!save}" value="Save"/>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>
