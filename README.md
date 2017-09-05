@@ -19,21 +19,33 @@ cd ProjectForce
 git checkout -b myBranch
 ```
 
-Once you've done that, you'll be working in your own branch and can make changes as you see fit.  To start, you may want to edit the JSON config files within the project structure to reflect your personal preferences.  From this point on, we’re going to assume you are using SFDX, you have created a Dev Hub and authorized SFDX to use it, and that you have created a scratch org.  
+Once you've done that, you'll be working in your own branch and can make changes as you see fit.  To start, you may want to edit the JSON config files within the project structure to reflect your personal preferences.  From this point on, we’re going to assume you are using SFDX, you have created a Dev Hub and authorized SFDX to use it.
 
-First, push all of the Project Force metadata into your scratch org:
+Create a scratch org and set as the default org for further SFDX commands:
+
+```
+sfdx force:org:create --setdefaultusername --setalias test --definitionfile config/project-scratch-def.json 
+```
+
+Push all of the Project Force metadata into your newly created scratch org:
 
 ```
 sfdx force:source:push
 ```
 
-Next, open your scratch org in the browser and select the Project Force app from the app drop down or the app menu if you’re using Lightning Experience.  Note:  you may need to edit your user profile so you’ll be able to see all of the tabs contained in the Project Force app.
+Next, open your scratch org in the browser
 
 ```
 sfdx force:org:open
 ```
 
-First, click the Projects tab, and create a new Project__c object there.  Click the Projects tab again to see the list view.  Notice there are only two columns for the record ID and the record name.
+For your scratch org user's profile, ensure the following selections are active:
+
+![image](https://user-images.githubusercontent.com/45772/30082726-1464101c-9249-11e7-9cfb-d34e5889dccb.png)
+
+Now, select the Project Force app from the app drop down or the app menu if you’re using Lightning Experience.
+
+Then, click the Projects tab, and create a new Project__c object there.  Click the Projects tab again to see the list view.  Notice there are only two columns for the record ID and the record name.
 
 ![image](https://user-images.githubusercontent.com/31550188/30071448-f94d219e-9223-11e7-9db7-0877646b7b7c.png)
 
