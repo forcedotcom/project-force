@@ -136,30 +136,18 @@ private class FeatureConsoleTest {
         
         insert project;
     }
-    
+
     private static void resetExpenseTracking() {
-        // turn off the gating feature param if it is turned on
-        boolean permitted = FeatureManagement.checkPackageBooleanValue('ExpenseTrackingPermitted');
-        if(permitted) {
-            FeatureManagement.setPackageBooleanValue('ExpenseTrackingPermitted', false);
-        }
-        // disable the feature if it is currently enabled
-        boolean enabled = FeatureConsoleAPI.expenseTrackingEnabled(21367);
-        if(enabled) {
-            FeatureConsoleAPI.disableExpenseTracking(21367);
-        }
+        // turn off the gating feature param just in case it's turned on
+        FeatureManagement.setPackageBooleanValue('ExpenseTrackingPermitted', false);
+        // disable the feature just in case it's enabled
+        FeatureConsoleAPI.disableExpenseTracking(21367);
     }
-    
+
     private static void resetBudgetTracking() {
-        // turn off the gating feature if it is turned on
-        boolean permitted = FeatureManagement.checkPackageBooleanValue('BudgetTrackingPermitted');
-        if(permitted) {
-            FeatureManagement.setPackageBooleanValue('BudgetTrackingPermitted', false);
-        }
-        // disable the feature if it is currently enabled
-        boolean enabled = FeatureConsoleAPI.budgetTrackingEnabled(21367);
-        if(enabled) {
-            FeatureConsoleAPI.disableBudgetTracking(21367);
-        }
-    }
+        // turn off the gating feature param just in case it's turned on
+        FeatureManagement.setPackageBooleanValue('BudgetTrackingPermitted', false);
+        // disable the feature just in case it's enabledd
+        FeatureConsoleAPI.disableBudgetTracking(21367);
+    }    
 }
