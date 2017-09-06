@@ -60,5 +60,5 @@
     <pluralLabel>Budget Line Items</pluralLabel>
     <searchLayouts/>
     <sharingModel>ControlledByParent</sharingModel>
-    <visibility>Public</visibility>
+    <visibility>Protected</visibility>
 </CustomObject>
