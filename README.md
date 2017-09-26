@@ -112,7 +112,9 @@ There are also a few things we've purposely left undone.  First, there is a cust
 
 ## Resources
 
-Resources on SFDX and Feature Management should be referenced here.
+[Salesforce Feature Management Developer Guide](https://developer.salesforce.com/docs/atlas.en-us.packagingGuide.meta/packagingGuide/fma_manage_features.htm)
+[Salesforce DX Developer Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev)
+[Salesforce DX Dreamhouse App](https://github.com/forcedotcom/sfdx-dreamhouse)
 
 ## Description of Files and Directories
 
