@@ -3,12 +3,14 @@ public class FeatureConsoleController {
     // controller class for the feature console tab/page
 
     List<Feature> features;
+    String ET_FEATURE = 'Expense Tracking';
+    String BT_FEATURE = 'Budget Tracking';
     
     // check the status of the expense/budget tracking features when the page loads.
     public FeatureConsoleController() {
         features = new List<Feature>();
-        features.add(new Feature(FeatureConsoleAPI.expenseTrackingEnabled(21367), 'Expense Tracking'));
-        features.add(new Feature(FeatureConsoleAPI.budgetTrackingEnabled(21367), 'Budget Tracking'));   
+        features.add(new Feature(FeatureConsoleAPI.expenseTrackingEnabled(21367), ET_FEATURE));
+        features.add(new Feature(FeatureConsoleAPI.budgetTrackingEnabled(21367), BT_FEATURE));   
     }
 
     // simple sub-class to represent the status of a given feature.
@@ -30,28 +32,25 @@ public class FeatureConsoleController {
     // when the page saves, enable/disable features based on how they're set on the page.   
     public void save() {
        for (Feature feature : features) {
-          if  (feature.name.equals('Expense Tracking')) {
-              if (feature.enabled) {
-                  try {
+          if(feature.enabled) {
+              try {
+                  if(feature.name.equals(ET_FEATURE)) {
                       FeatureConsoleAPI.enableExpenseTracking(21367);
                   }
-                  catch(FeatureAccessException e) {
-                      feature.enabled = false;
-                      ApexPages.addMessages(e);
-                  }
-              } else {
-                FeatureConsoleAPI.disableExpenseTracking(21367);
-              }
-          } else if (feature.name.equals('Budget Tracking')) {
-              if (feature.enabled) {
-                  try {
+                  else if (feature.name.equals(BT_FEATURE)) {
                       FeatureConsoleAPI.enableBudgetTracking(21367);
                   }
-                  catch(FeatureAccessException e) {
-                      feature.enabled = false;
-                      ApexPages.addMessages(e);
-                  }
-              } else {
+              }
+              catch(FeatureAccessException e) {
+                  feature.enabled = false;
+                  ApexPages.addMessages(e);
+              }
+          }
+          else {
+              if(feature.name.equals(ET_FEATURE)) {
+                  FeatureConsoleAPI.disableExpenseTracking(21367);
+              }
+              else if (feature.name.equals(BT_FEATURE)) {
                   FeatureConsoleAPI.disableBudgetTracking(21367);
               }
           }

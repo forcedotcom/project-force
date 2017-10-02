@@ -8,7 +8,7 @@ private class FeatureConsoleControllerTest {
         FeatureConsoleController controller = new FeatureConsoleController();
         List<FeatureConsoleController.Feature> features = controller.getFeatures();
         // assert that there are 2 features
-        System.assertEquals(2, features.size());
+        System.assertEquals(2, features.size(), 'Unexpected number of features.');
         
         // test that we cannot currently enable either feature
         for(FeatureConsoleController.Feature feature:features) {
@@ -19,8 +19,8 @@ private class FeatureConsoleControllerTest {
         // verify that both features are still disabled
         boolean etEnabled = FeatureConsoleAPI.expenseTrackingEnabled(21367);
         boolean btEnabled = FeatureConsoleAPI.budgetTrackingEnabled(21367);
-        System.assert(!etEnabled);
-        System.assert(!btEnabled);
+        System.assert(!etEnabled, 'Expense Tracking feature is enabled and should not be.');
+        System.assert(!btEnabled, 'Budget Tracking feature is enabled and should not be.');
         
         // turn on the gating param for the expense tracking feature
         FeatureManagement.setPackageBooleanValue('ExpenseTrackingPermitted', true);
@@ -35,20 +35,13 @@ private class FeatureConsoleControllerTest {
         // verify that the expense tracking feature is enabled, but not the budget tracking feature
         etEnabled = FeatureConsoleAPI.expenseTrackingEnabled(21367);
         btEnabled = FeatureConsoleAPI.budgetTrackingEnabled(21367);
-        System.assert(etEnabled);
-        System.assert(!btEnabled);
+        System.assert(etEnabled, 'Expense Tracking feature is disabled and should not be.');
+        System.assert(!btEnabled, 'Budget Tracking feature is enabled and should not be.');
     }
     
     private static void resetParams() {
-        // turn off the gating feature param if it is turned on
-        boolean permitted = FeatureManagement.checkPackageBooleanValue('ExpenseTrackingPermitted');
-        if(permitted) {
-            FeatureManagement.setPackageBooleanValue('ExpenseTrackingPermitted', false);
-        }
-        
-        permitted = FeatureManagement.checkPackageBooleanValue('BudgetTrackingPermitted');
-        if(permitted) {
-            FeatureManagement.setPackageBooleanValue('BudgetTrackingPermitted', false);
-        }
+        // turn off the gating feature params, just in case they're turned on.  
+        FeatureManagement.setPackageBooleanValue('ExpenseTrackingPermitted', false);
+        FeatureManagement.setPackageBooleanValue('BudgetTrackingPermitted', false);
     }
 }
