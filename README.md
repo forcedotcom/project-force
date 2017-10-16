@@ -125,7 +125,7 @@ _[Salesforce DX Developer Guide](https://developer.salesforce.com/docs/atlas.en-
 ## Description of Files and Directories
 
 `pf-app`:
-	This is the directory where all of the metadata for the app is contained. It is currently in Metadata API format, and would need to be converted using `sfdx force:mdapi:convert` before it can be deployed to a release org.
+	This is the directory where all of the metadata for the app is contained. It is currently in the Salesforce DX source format, and would need to be converted using `sfdx force:source:convert` before it can be deployed to a release org.
  
 `config`:
 	This is the directory where the scratch org configuration JSON file, `project-scratch-def.json`, lives. Edit this file to match your personal preferences.
