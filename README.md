@@ -51,7 +51,7 @@ Now, select the Project Force app the app menu (if you’re using Lightning Expe
 
 Then, click the Projects tab, and create a new `Project__c` object there. Click the Projects tab again to see the list view. Notice that there are only two columns for the record ID and the record name.
 
-![image](https://user-images.githubusercontent.com/31550188/30071448-f94d219e-9223-11e7-9db7-0877646b7b7c.png)
+![image](https://user-images.githubusercontent.com/45772/32290491-de179194-beff-11e7-8d77-567793c68e1a.png)
 
 Next, click the Feature Console tab. Select the **Expense Tracking** feature, and click **Save**. An error message on the page says, “Expense Tracking feature not currently licensed.” 
 
@@ -82,7 +82,7 @@ Back in your scratch org, return to the Feature Console tab. Try again to enable
 
 Click the Projects tab, and notice there is now a new column for Expense Tracking in the list view. 
 
-![image](https://user-images.githubusercontent.com/31550188/30071557-5919a764-9224-11e7-9b82-790822c42f41.png)
+![image](https://user-images.githubusercontent.com/45772/32290490-de0011f4-beff-11e7-8621-752fa5532d85.png)
 
 If you disable the Expense Tracking feature in the Feature Console, this column will again be hidden. You can also repeat this process for the Budget Tracking feature, which is gated by the `BudgetTrackingPermitted` feature parameter. 
 

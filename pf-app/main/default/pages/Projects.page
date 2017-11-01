@@ -3,7 +3,7 @@
     <apex:form >
         <apex:pageBlock >
         <apex:pageBlockButtons location="top">
-            <apex:commandButton action="{!URLFOR($Action.Project__c.New)}" value="Create New Project"/>
+            <apex:commandButton action="{!URLFOR($Action.Project__c.New)}" value="New Project"/>
         </apex:pageBlockButtons>
         <!-- Link for creating a new Project object. 
         <apex:outputLink value="{!URLFOR($Action.Project__c.New)}"> 
