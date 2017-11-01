@@ -11,12 +11,13 @@
         </apex:outputLink> -->
             <!-- use the data variable containing Project objects to create a table -->
             <apex:pageBlockTable var="c" value="{!data}">
-                
-                <apex:column value="{!c.Id}"/>
-                <apex:column value="{!c.Name}"/> 
+                <apex:column style="width:5%">
+                  <apex:outputLink title="" value="/{!c.id}">Edit</apex:outputLink>
+                </apex:column>
+                <apex:column value="{!c.Name}" style="width:25%"/> 
                 <!-- Expense Tracking and Total Budget columns are only displayed if the features/Custom permissions are enabled -->
-                <apex:column value="{!c.ExpenseTracking__c}" rendered="{!expenseTrackingEnabled}"/>
-                <apex:column value="{!c.TotalBudget__c}" rendered="{!budgetTrackingEnabled}"/>                               
+                <apex:column value="{!c.ExpenseTracking__c}" rendered="{!expenseTrackingEnabled}"  style="width:10%"/>
+                <apex:column value="{!c.TotalBudget__c}" rendered="{!budgetTrackingEnabled}"  style="width:10%"/>                               
             </apex:pageBlockTable>
         </apex:pageBlock>
     </apex:form>
