@@ -9,17 +9,21 @@ public class FeatureConsoleController {
     // check the status of the expense/budget tracking features when the page loads.
     public FeatureConsoleController() {
         features = new List<Feature>();
-        features.add(new Feature(FeatureConsoleAPI.expenseTrackingEnabled(21367), ET_FEATURE));
-        features.add(new Feature(FeatureConsoleAPI.budgetTrackingEnabled(21367), BT_FEATURE));   
+        // features.add(new Feature(FeatureConsoleAPI.expenseTrackingEnabled(21367), ET_FEATURE,
+        //                     !FeatureManagement.checkPackageBooleanValue('ExpenseTrackingPermitted')));
+        features.add(new Feature(FeatureConsoleAPI.expenseTrackingEnabled(21367), ET_FEATURE, false));
+        features.add(new Feature(FeatureConsoleAPI.budgetTrackingEnabled(21367), BT_FEATURE, false));   
     }
 
     // simple sub-class to represent the status of a given feature.
     public class Feature {
        public Boolean enabled {get; set;}
-       public String name{get;set;}
-       public Feature(boolean enabled, String name) {
+       public String name {get; set;}
+       public Boolean notPermitted {get; set;}
+       public Feature(boolean enabled, String name, Boolean notPermitted) {
           this.enabled = enabled;
           this.name = name;
+          this.notPermitted = notPermitted;
        }
     }
 

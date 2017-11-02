@@ -7,7 +7,7 @@
             <apex:pageBlockTable var="f" value="{!features}">
               <!-- checkbox representing if the feature in this row is enabled -->
               <apex:column headerValue="Enabled" width="30">
-              <apex:inputCheckbox value="{!f.enabled}"/>
+                  <apex:inputCheckbox value="{!f.enabled}" disabled="{!f.notPermitted}"/>
               </apex:column>
               <!-- feature name -->
               <apex:column value="{!f.name}" headerValue="Name"/>
