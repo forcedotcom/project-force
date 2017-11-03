@@ -19,7 +19,8 @@ private class FeatureConsoleTest {
         caughtException = false;
         
         // enable the param so we can continue our testing
-        // Whoops! forgot to prmit this operation -- FeatureManagement.setPackageBooleanValue('ExpenseTrackingPermitted',true); 
+        // DF17 - uncomment this line to "fix" the test
+        // FeatureManagement.setPackageBooleanValue('ExpenseTrackingPermitted',true); 
         
         // test the access restriction exception handling
         try {

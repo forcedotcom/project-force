@@ -9,10 +9,22 @@ public class FeatureConsoleController {
     // check the status of the expense/budget tracking features when the page loads.
     public FeatureConsoleController() {
         features = new List<Feature>();
-        // features.add(new Feature(FeatureConsoleAPI.expenseTrackingEnabled(21367), ET_FEATURE,
-        //                     !FeatureManagement.checkPackageBooleanValue('ExpenseTrackingPermitted')));
-        features.add(new Feature(FeatureConsoleAPI.expenseTrackingEnabled(21367), ET_FEATURE, false));
-        features.add(new Feature(FeatureConsoleAPI.budgetTrackingEnabled(21367), BT_FEATURE, false));   
+        
+        // DF17 - Change to true to use vaue of package boolean
+        //        to control expense tracking checkbox
+        Boolean useFeatureParameter = false;
+        
+        if (useFeatureParameter) {
+            features.add(new Feature(
+                FeatureConsoleAPI.expenseTrackingEnabled(21367), ET_FEATURE,
+                !FeatureManagement.checkPackageBooleanValue('ExpenseTrackingPermitted')));
+        }
+        else {
+            features.add(new Feature(
+                FeatureConsoleAPI.expenseTrackingEnabled(21367), ET_FEATURE, false));
+        }
+
+        features.add(new Feature(FeatureConsoleAPI.budgetTrackingEnabled(21367), BT_FEATURE, false));
     }
 
     // simple sub-class to represent the status of a given feature.
