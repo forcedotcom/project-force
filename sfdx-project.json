@@ -5,6 +5,7 @@
       "default": true
     }
   ],
+  "namespace": "<your namespace here>",
   "sfdcLoginUrl": "https://login.salesforce.com",
-  "sourceApiVersion": "40.0"
+  "sourceApiVersion": "41.0"
 }
