@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<PackageDateValue xmlns="http://soap.sforce.com/2006/04/metadata">
+<FeatureParameterDate xmlns="http://soap.sforce.com/2006/04/metadata">
     <dataflowDirection>LmoToSubscriber</dataflowDirection>
     <masterLabel>Latest Budget Date</masterLabel>
     <value>1970-01-01</value>
-</PackageDateValue>
+</FeatureParameterDate>

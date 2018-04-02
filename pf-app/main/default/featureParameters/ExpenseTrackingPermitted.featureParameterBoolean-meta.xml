@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<PackageBooleanValue xmlns="http://soap.sforce.com/2006/04/metadata">
+<FeatureParameterBoolean xmlns="http://soap.sforce.com/2006/04/metadata">
     <dataflowDirection>LmoToSubscriber</dataflowDirection>
     <masterLabel>Expense Tracking Permitted</masterLabel>
     <value>false</value>
-</PackageBooleanValue>
+</FeatureParameterBoolean>
