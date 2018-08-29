@@ -3,9 +3,9 @@
     <defaultLandingTab>standard-home</defaultLandingTab>
     <formFactors>Large</formFactors>
     <label>Project Force</label>
-    <tab>Projects</tab>
-    <tab>FeatureConsole</tab>
-    <tab>CostCenter__c</tab>
-    <tab>BudgetLineItem__c</tab>
-    <tab>OrganizationBudget__c</tab>
+    <tabs>Projects</tabs>
+    <tabs>FeatureConsole</tabs>
+    <tabs>CostCenter__c</tabs>
+    <tabs>BudgetLineItem__c</tabs>
+    <tabs>OrganizationBudget__c</tabs>
 </CustomApplication>
